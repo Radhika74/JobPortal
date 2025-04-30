@@ -3,11 +3,10 @@
 
 A **JobNexa** web application designed to bridge the gap between talented **students** and potential employers. Students can easily search, find, and apply for jobs, while **recruiters** can post job listings, review applications, and hire top talent. Built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) for a seamless experience, ShadCN UI and Tailwind CSS for a modern and responsive interface, and additional features such as real-time notifications and personalized job recommendations. The platform ensures an intuitive, efficient, and scalable solution for job seekers and recruiters alike.
 
----
 
-## 📌 Features
+##  Features
 
-### 👩‍🎓 Students:
+###  Students:
 - Sign up & login securely as Student
 - Search & apply for jobs
 - Track applied job status
@@ -34,7 +33,7 @@ A **JobNexa** web application designed to bridge the gap between talented **stud
 - **Tailwind CSS** – Utility-first CSS framework
 - **JavaScript (ES6+)**
 
-### 🖥 Backend:
+### Backend:
 - **Node.js** – JS runtime environment
 - **Express.js** – Backend web framework
 
@@ -74,7 +73,7 @@ npm install
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
+MONGO_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 ```
 
@@ -110,13 +109,11 @@ VITE_API_URL=http://localhost:5000
 npm run dev
 ```
 
----
 
 ##  Run Application
 
 Visit: http://localhost:5173
 
----
 
 ## Project Folder Structure
 
@@ -133,7 +130,7 @@ job-portal/
 │   ├── index.js             # Entry point of backend server
 │   ├── package.json         # Backend dependencies
 │   ├── package-lock.json
-│   └── README.md
+
 │
 ├── fronted/                 # (Consider renaming to frontend)
 │   ├── public/              # Static assets
@@ -148,5 +145,24 @@ job-portal/
 │   ├── vite.config.js
 │   ├── package.json         # Frontend dependencies
 │   ├── package-lock.json
-│   └── README.md
+
 ```
+## Screenshots
+
+Below are some previews of the **JobNexa** platform:
+The login and signup process allows users to authenticate into the system. In the signup form, users provide their full name, email, phone number, password, **role (student/recruiter)**, and  profile picture. The data is sent via FormData to the backend using Axios, and upon successful registration, users are redirected to the login page with a success toast. The login form accepts email and password, sends them to the server for validation, and if successful, redirects the user to the dashboard while managing loading states via Redux.
+
+### SignUppage
+![SignUppage Screenshot](./screenshots/signup.png)
+
+### Loginpage
+![LoginPage Screenshot](./screenshots/login.png)
+
+### Homepage
+![Homepage Screenshot](./screenshots/Homepage.png)
+
+### Dashboard
+![Dashboard Screenshot](./screenshots/dashboard.png)
+
+### Job Posting Page
+![Job Posting Screenshot](./screenshots/job-posting.png)
