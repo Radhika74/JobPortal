@@ -1,7 +1,7 @@
-﻿# JobPortal
-# 💼 Job Portal -JobNexa
 
-A **JobNexa** web application where **students** can search, find, and apply for jobs, while **recruiters** can post job listings and manage applications. Built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) and modern tools including **ShadCN UI** and **Tailwind CSS**.
+# Job Portal -JobNexa
+
+A **JobNexa** web application designed to bridge the gap between talented **students** and potential employers. Students can easily search, find, and apply for jobs, while **recruiters** can post job listings, review applications, and hire top talent. Built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) for a seamless experience, ShadCN UI and Tailwind CSS for a modern and responsive interface, and additional features such as real-time notifications and personalized job recommendations. The platform ensures an intuitive, efficient, and scalable solution for job seekers and recruiters alike.
 
 ---
 
@@ -13,21 +13,21 @@ A **JobNexa** web application where **students** can search, find, and apply for
 - Track applied job status
 - Personalized dashboard with job recommendations
 
-### 🧑‍💼 Recruiters:
+### Recruiters:
 - Register & login as Recruiter 
 - Post new job listings by filling essential job details
 - View & manage job applications
 - Track how many have applied for job
 
-### 🌐 General:
+###  General:
 - Secure authentication using JWT
 - Real-time notifications for activity
 - Advanced job filtering by location, salary, and role
 
 
-## 🛠 Tech Stack
+## Tech Stack
 
-### 🧑‍💻 Frontend:
+### Frontend:
 - **React.js** – Dynamic user interface
 - **Redux.js** – State management
 - **ShadCN UI** – Accessible and elegant UI components
@@ -38,19 +38,21 @@ A **JobNexa** web application where **students** can search, find, and apply for
 - **Node.js** – JS runtime environment
 - **Express.js** – Backend web framework
 
-### 💾 Database & Auth:
+### Database & Auth:
 - **MongoDB** – NoSQL database
 - **Mongoose** – Object data modeling (ODM)
 - **JWT (JSON Web Token)** – Authentication
 - **Bcrypt.js** – Password encryption
+- **NextAuth.js** - Authentication library for Next.js.
 
-### 🧰 Utilities:
+### Utilities:
 - **Axios** – API requests
 - **Dotenv** – Environment configuration
 - **Cors** – Cross-origin handling
+- **Sonner** -Toast notifications
 
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -68,7 +70,7 @@ cd backend
 npm install
 ```
 
-- Create a `.env` file inside `backend/` and add:
+- Set up environment variables: Create a `.env` file inside `backend/` and add:
 
 ```env
 PORT=5000
@@ -81,7 +83,6 @@ JWT_SECRET=your_jwt_secret
 ```bash
 npm run dev
 ```
-
 ---
 
 ### 3. Frontend Setup
@@ -113,11 +114,11 @@ npm run dev
 
 ##  Run Application
 
-Visit: [http://localhost:5173](http://localhost:5173)
+Visit: http://localhost:5173
 
 ---
 
-## 🧱 Project Folder Structure
+## Project Folder Structure
 
 ```bash
 job-portal/
@@ -138,7 +139,7 @@ job-portal/
 │   ├── public/              # Static assets
 │   ├── src/                 # All React code
 │   │   ├── components/      # UI components (can include shadcn/ui based ones)
-│   │   ├── pages/           # App pages (e.g. Home, Login, Dashboard)
+│   │   ├── pages/           # App pages 
 │   │   ├── redux/           # Redux slices & store
 │   │   └── App.jsx          # Main component
 │   ├── .gitignore
