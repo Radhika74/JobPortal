@@ -1,6 +1,9 @@
+import { setLoading } from "@/redux/authSlice";
 import { USER_API_END_POINT } from "@/utils/constant";
 import axios from "axios";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Navbar from "../shared/Navbar";
@@ -16,30 +19,34 @@ const Login = () => {
         role: ""
     });
     const Navigate = useNavigate();
-
+    const dispatch = useDispatch();
+    const { loading } = useSelector(store => store.auth);
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value });
     };
 
-        const submitHandler = async (e) => {
-            e.preventDefault();
-            try {
-                const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    withCredentials: true,
-                });
-                if (res.data.success) {
-                    
-                    Navigate("/");
-                    toast.success(res.data.message);
-                }
-            } catch (error) {
-                console.log(error);
-                toast.error(error.response.data.message);
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        try {
+            dispatch(setLoading(true));
+            const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true,
+            });
+            if (res.data.success) {
+
+                Navigate("/");
+                toast.success(res.data.message);
             }
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data.message);
+        } finally {
+            dispatch(setLoading(false));
         }
+    }
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -47,12 +54,12 @@ const Login = () => {
             <div className="flex items-center justify-center min-h-[calc(100vh-64px)]">
                 <form
                     onSubmit={submitHandler}
-                    className="w-full max-w-md border border-gray-300 rounded-xl shadow-md p-6 bg-white"
+                    className="w-full max-w-md border border-gray-300 rounded-xl shadow-md p-10 bg-white"
                 >
                     <h1 className="font-bold text-3xl mb-6 text-center">Login</h1>
 
                     <div className="mb-4">
-                        <Label htmlFor="email">Email</Label>
+                        <Label htmlFor="email" className="mb-2 block">Email</Label>
                         <Input
                             type="email"
                             value={input.email}
@@ -63,7 +70,7 @@ const Login = () => {
                     </div>
 
                     <div className="mb-4">
-                        <Label htmlFor="password">Password</Label>
+                        <Label htmlFor="password" className="mb-2 block">Password</Label>
                         <Input
                             id="password"
                             type="password"
@@ -74,8 +81,8 @@ const Login = () => {
                         />
                     </div>
 
-                    <div className="flex items-center justify-between">
-                        <RadioGroup className="flex items-center gap-4 my-5">
+                    <div>
+                        <RadioGroup className="flex items-center gap-4 my-3">
                             <div className="flex items-center space-x-2">
                                 <Input
                                     type="radio"
@@ -100,10 +107,23 @@ const Login = () => {
                             </div>
                         </RadioGroup>
                     </div>
+                    {loading ? (
+                        <Button
+                            disabled
+                            className="w-full my-2 py-2 rounded-xl bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center"
+                        >
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Please wait
+                        </Button>
+                    ) : (
+                        <Button
+                            type="submit"
+                            className="w-full my-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-300"
+                        >
+                            Login
+                        </Button>
+                    )}
 
-                    <Button type="submit" className="w-full my-4">
-                        Login
-                    </Button>
                     <span className="text-sm">
                         Don't Have an Account?{" "}
                         <Link to="/signup" className="text-blue-500 hover:underline">
