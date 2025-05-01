@@ -80,7 +80,7 @@ JWT_SECRET=your_jwt_secret
 - Run backend server:
 
 ```bash
-npm run dev
+npx nodemon index.js
 ```
 ---
 
