@@ -157,7 +157,7 @@ const Signup = () => {
                         <button
                             type="button"
                             disabled
-                            className="w-full bg-blue-600 text-white font-medium py-2 rounded-lg mt-4 hover:bg-blue-700 transition-all flex items-center justify-center"
+                            className="w-full bg-[#6A38C2] text-white font-medium py-2 rounded-lg mt-4 hover:bg-[#8961cf] transition-all flex items-center justify-center"
                         >
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             Please wait
@@ -165,7 +165,7 @@ const Signup = () => {
                     ) : (
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white font-medium py-2 rounded-lg mt-4 mb-2 hover:bg-blue-700 transition-all"
+                            className="w-full  bg-[#6A38C2] text-white font-medium py-2 rounded-lg mt-4 mb-2 hover:bg-[#8961cf] transition-all"
                         >
                             Sign Up
                         </button>
@@ -174,7 +174,7 @@ const Signup = () => {
 
                     <span className="text-sm">
                         Already Have an Account?{" "}
-                        <Link to="/login" className="text-blue-500 hover:underline">
+                        <Link to="/login" className="text-[#6A38C2] hover:underline">
                             Login
                         </Link>
                     </span>
