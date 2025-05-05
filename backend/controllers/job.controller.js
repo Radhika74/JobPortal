@@ -1,6 +1,6 @@
 import { Job } from "../models/job.model.js";
 
-// when admin create post
+// admin post krega job
 export const postJob = async (req, res) => {
     try {
         const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
@@ -33,7 +33,7 @@ export const postJob = async (req, res) => {
         console.log(error);
     }
 }
-// student apply job
+// student k liye
 export const getAllJobs = async (req, res) => {
     try {
         const keyword = req.query.keyword || "";
@@ -65,8 +65,8 @@ export const getJobById = async (req, res) => {
     try {
         const jobId = req.params.id;
         const job = await Job.findById(jobId).populate({
-            path:"applications",
-        })
+            path:"applications"
+        });
         if (!job) {
             return res.status(404).json({
                 message: "Jobs not found.",
@@ -78,7 +78,7 @@ export const getJobById = async (req, res) => {
         console.log(error);
     }
 }
-// How many jobs admin can creat
+// admin 
 export const getAdminJobs = async (req, res) => {
     try {
         const adminId = req.id;
