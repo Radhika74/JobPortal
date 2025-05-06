@@ -1,22 +1,20 @@
-
+import { useSelector } from 'react-redux';
 import LatestJobCards from './LatestJobCards';
 
-const randomJobs = [1,2,3,4,5,6]
+// const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8];
+
 const LatestJobs = () => {
-
+    const {allJobs} = useSelector(store=>store.job);
     return (
-        <section className="py-10 px-4 bg-gray-50">
-            <div className="max-w-7xl mx-auto">
-                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Latest Job Opportunities</h2>
-
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {
-                    randomJobs.slice(0,6).map((item,index)=> <LatestJobCards/>)
-                    }
-                </div>
+        <div className='max-w-7xl mx-auto my-20'>
+            <h1 className='text-2xl font-medium'><span className='text-[#6A38C2]'>Latest & Top </span> Job Openings</h1>
+            <div className='grid grid-cols-3 gap-4 my-5'>
+                {
+                    allJobs.length <= 0 ? <span>No Job Available</span> : allJobs?.slice(0,6).map((job) => <LatestJobCards key={job._id} job={job}/>)
+                }
             </div>
-        </section>
-    );
-};
+        </div>
+    )
+}
 
-export default LatestJobs;
+export default LatestJobs

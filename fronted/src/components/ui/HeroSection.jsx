@@ -18,7 +18,7 @@ const HeroSection = () => {
     };
 
     return (
-        <div className="text-center px-4 py-12 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors">
+        <div className="text-center px-4 py-6 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors">
             <div className="max-w-3xl mx-auto flex flex-col gap-6">
                 <span className="mx-auto px-4 py-2 rounded-full bg-[#ede5fb] text-[#6C3FCF] font-semibold text-sm shadow-sm dark:bg-[#2d1e42] dark:text-[#bfa7ff]">
                     🚀 No. 1 Job Portal
