@@ -18,23 +18,30 @@ const Applicants = () => {
                 const res = await axios.get(`${APPLICATION_API_END_POINT}/${params.id}/applicants`, { withCredentials: true });
                 dispatch(setAllApplicants(res.data.job));
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         };
         fetchAllApplicants();
     }, [params.id, dispatch]);
 
     return (
-        <div className="bg-gradient-to-r from-blue-50 to-blue-100 min-h-screen">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
             <Navbar />
             <div className="max-w-7xl mx-auto p-6">
-                <h1 className="font-bold text-2xl text-gray-800 my-6">
-                    Applicants {applicants?.applications?.length}
-                </h1>
-                {/* You can display loading/error messages here */}
-                <div className="bg-white shadow-lg rounded-lg p-4">
+                <div className="flex items-center justify-between mb-6">
+                    <h1 className="text-3xl font-semibold text-gray-800">
+                        Applicants
+                        <span className="ml-2 px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium shadow-sm">
+                            {applicants?.applications?.length || 0}
+                        </span>
+                    </h1>
+                </div>
+
+                <div className="bg-white/90 shadow-xl rounded-2xl p-6">
                     {applicants?.applications?.length === 0 ? (
-                        <p className="text-center text-gray-600">No applicants found for this job.</p>
+                        <div className="text-center text-gray-600 py-10">
+                            <p className="text-lg font-medium">No applicants found for this job.</p>
+                        </div>
                     ) : (
                         <ApplicantsTable />
                     )}
