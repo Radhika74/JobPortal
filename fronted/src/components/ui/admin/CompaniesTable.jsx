@@ -46,14 +46,14 @@ const CompaniesTable = () => {
                             <TableCell className="text-right cursor-pointer">
                                 <Popover>
                                     <PopoverTrigger>
-                                        <MoreHorizontal className="w-5 h-5 text-gray-600 hover:text-gray-800" />
+                                        <MoreHorizontal className="w-5 h-5 text-[#5d6adb] hover:text-[#4f5bbd]" />
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-32">
+                                    <PopoverContent className="w-24 p-0.5 bg-white shadow-lg border border-[#e0e4fa]">
                                         <div
                                             onClick={() => navigate(`/admin/companies/${company._id}`)}
-                                            className="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer rounded-md"
+                                            className="flex items-center gap-2 p-1 text-[#5d6adb] hover:bg-[#f0f2ff] rounded-md cursor-pointer"
                                         >
-                                            <Edit2 className="w-4 h-4 text-gray-600" />
+                                            <Edit2 className="w-2 h-2" />
                                             <span>Edit</span>
                                         </div>
                                     </PopoverContent>
