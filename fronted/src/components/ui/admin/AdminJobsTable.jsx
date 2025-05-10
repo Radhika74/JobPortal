@@ -20,10 +20,10 @@ const AdminJobsTable = () => {
     }, [allAdminJobs, searchJobByText]);
 
     return (
-        <div className="overflow-x-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-xl transition-all duration-300">
+        <div>
             <Table>
-                <TableCaption className="text-gray-600">Your recent job postings</TableCaption>
-                <TableHeader className="bg-gradient-to-r from-indigo-200 to-blue-200">
+                <TableCaption className="text-purple-800 py-2.5">Your recent job postings</TableCaption>
+                <TableHeader className="bg-gradient-to-r from-purple-500 to-purple-700">
                     <TableRow>
                         <TableHead className="text-gray-800 font-semibold tracking-wide">Company Name</TableHead>
                         <TableHead className="text-gray-800 font-semibold tracking-wide">Role</TableHead>
@@ -41,19 +41,19 @@ const AdminJobsTable = () => {
                                 <TableCell className="text-right">
                                     <Popover>
                                         <PopoverTrigger asChild>
-                                            <MoreHorizontal className="text-gray-500 hover:text-indigo-600 transition-colors cursor-pointer" />
+                                            <MoreHorizontal className="text-gray-500 hover:text-purple-800 transition-colors cursor-pointer" />
                                         </PopoverTrigger>
                                         <PopoverContent className="w-36 p-2 rounded-xl shadow-lg border border-gray-200">
                                             <div 
                                                 onClick={() => navigate(`/admin/companies/${job._id}`)} 
                                                 className="flex items-center gap-2 p-2 rounded-md hover:bg-indigo-100 cursor-pointer transition">
-                                                <Edit2 className='w-4 text-indigo-600' />
+                                                <Edit2 className='w-4 text-purple-800' />
                                                 <span className="text-sm font-medium text-gray-700">Edit</span>
                                             </div>
                                             <div 
                                                 onClick={() => navigate(`/admin/jobs/${job._id}/applicants`)} 
                                                 className="flex items-center gap-2 p-2 rounded-md hover:bg-indigo-100 mt-1 cursor-pointer transition">
-                                                <Eye className='w-4 text-indigo-600' />
+                                                <Eye className='w-4 text-purple-800' />
                                                 <span className="text-sm font-medium text-gray-700">Applicants</span>
                                             </div>
                                         </PopoverContent>
