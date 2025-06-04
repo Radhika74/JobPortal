@@ -167,5 +167,4 @@ The login and signup process allows users to authenticate into the system. In th
 ### Job Posting Page
 ![Job Posting Screenshot](./screenshots/job-posting.png)
 
-#### The project is currently in working phase. I will complete it by 10 may 2025.
 
